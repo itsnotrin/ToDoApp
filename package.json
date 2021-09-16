@@ -1,0 +1,27 @@
+{
+  "name": "todoapp",
+  "version": "0.0.1",
+  "description": "A simple ToDoApp that uses a database for logins and storing people's todo lists",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsnotrin/ToDoApp.git"
+  },
+  "author": "",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/itsnotrin/ToDoApp/issues"
+  },
+  "homepage": "https://github.com/itsnotrin/ToDoApp#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.12"
+  }
+}
