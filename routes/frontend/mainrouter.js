@@ -6,11 +6,13 @@ const path = require('path')
 router.get('/', (req, res) => {
     //Uses the current directory and then sends the Static index.html
     res.render(path.join(__dirname, './views/pages/index.ejs'), {
-        "username": "itsnotrin"
+        "username": req.session.username
     });
 });
 
-
+router.get('/login', (req, res) => {
+    res.render(path.join(__dirname, './views/pages/login.ejs'))
+})
 
 
 
