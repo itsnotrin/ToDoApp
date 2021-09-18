@@ -5,10 +5,12 @@ const bodyParser = require('body-parser')
 var session = require('express-session');
 app.use(session({secret:'notguessablesecrethere'
 ,name:'uniqueSessionID'
-,resave:false}))
+,saveUninitialized:false
+,resave: false}))
 
-app.use(bodyParser.urlencoded({extended : true}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({
+    extended: true
+  }))
 
 //Import the routers
 const MainRouter = require('./routes/frontend/mainrouter')
