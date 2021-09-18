@@ -1,6 +1,6 @@
 const { Router } = require('express')
 const router = Router()
-const sqlite3 = require('sqlite3').verbose();
+const sqlite3 = require('sqlite3')
 const db = new sqlite3.Database('./database.db', (err) => {
     if (err) {
         console.error(err.message);
@@ -14,27 +14,24 @@ router.post('/login', (req, res) => {
     const password = req.body.password
     let bufferObj = Buffer.from(password, "utf8");
     let base64String = bufferObj.toString("base64");
-    console.log(password, base64String)
-    db.each(`SELECT * FROM logins WHERE username = '${username}'`, (err, row) => {
-        if (err) {
-            console.log(err);
-            throw err;
-        }
-        if (!err){
-            if(base64String == row.password){
-                req.session.loggedIn = true
-                req.session.username = username
-                res.redirect('/')
-            }
-            else{
-                res.redirect('/fail')
-            }
 
+    db.get(`SELECT * FROM logins WHERE username = '${username}'`, (err, row) => {
+    if(!row){
+        req.session.loggedIn = false
+        res.redirect('/login?fail=false')
+    }
+    else{
+        if(base64String == row.password){
+            req.session.loggedIn = true
+            req.session.username = username
+            res.redirect('/?loggedin=true')
         }
-        
-    }, () => {
-        console.log('query completed')
-    });
+        else{
+            req.session.loggedIn = false
+            res.redirect('/login?fail=false')
+        }
+    }
+    })
 
 });
 

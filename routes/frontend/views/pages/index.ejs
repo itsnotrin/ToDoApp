@@ -3,6 +3,8 @@
 <body class="container">
 
 <head>
+  <title>ToDo - Home</title>
+  <link rel="stylesheet" href="/css/login.css">
         <!-- CSS (load bootstrap from a CDN) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -12,7 +14,35 @@
 
 
 <header>
-  <%- include('../partials/header'); %>
+  <%if (loggedin == true) { %>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="/">ToDo App</a>
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      </ul>
+    </nav>
+  <% } %>
+  <%if (!loggedin == true) { %>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">ToDo App</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="text-align: right" href="/login">Login</a>
+      </li>
+    </ul>
+  </nav>
+  <%}%>
 </header>
 
 <main>
