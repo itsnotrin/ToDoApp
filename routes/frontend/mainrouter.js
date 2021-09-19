@@ -29,6 +29,18 @@ router.get('/login', (req, res) => {
     })
 })
 
+router.get('/signup', (req, res) => {
+    if(req.query.error == undefined){
+        error = false
+    }
+    else{
+        error = req.query.error
+    }
+    res.render(path.join(__dirname, './views/pages/signup.ejs'), {
+        "error": error
+    })
+})
+
 
 
 module.exports = router;

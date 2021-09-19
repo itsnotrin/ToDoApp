@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="/css/login.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+		<meta charset="utf-8">
+		<title>ToDo - SignUp</title>
+	</head>
+	<body>
+		<div class="login-form">
+			<h1>Signup!</h1>
+			<form action="auth/signup" method="POST">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="number" name="number" placeholder="Phone Number">
+				<input type="text" name="username" placeholder="Username" required>
+				<input type="password" name="password" placeholder="Password" required>
+				<input type="submit">
+			</form>
+		</div>
+	</body>
+</html>
