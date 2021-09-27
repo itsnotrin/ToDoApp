@@ -36,7 +36,11 @@ router.post('/login', (req, res) => {
 });
 
 router.post('/signup', (req, res) => {
-    //Eventually code signup into here.
+    const email = req.body.email
+    const number = req.body.number
+    const username = req.body.username
+    const password = req.body.password
+    console.log(number)
 })
 
 
