@@ -15,7 +15,8 @@ router.post('/login', (req, res) => {
     let bufferObj = Buffer.from(password, "utf8");
     let base64String = bufferObj.toString("base64");
 
-    db.get(`SELECT * FROM logins WHERE username = '${username}'`, (err, row) => {
+
+    db.get(`SELECT * FROM logins WHERE username = ?`, username, (err, row) => {
     if(!row){
         req.session.loggedIn = false
         res.redirect('/login?fail=false')

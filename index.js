@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
-const port = process.env.PORT || 8000
+const session = require('express-session')
 const bodyParser = require('body-parser')
-var session = require('express-session');
+
+// Define the port
+const port = process.env.PORT || 8000
+
 app.use(session({secret:'notguessablesecrethere'
 ,name:'uniqueSessionID'
 ,saveUninitialized:false
